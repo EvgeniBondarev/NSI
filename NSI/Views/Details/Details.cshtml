@@ -1,0 +1,32 @@
+﻿@model NSI.Models.Detail
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Подробно</h1>
+
+<div>
+    <h4>Деталь</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+           <p>Название детали</p>
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            <p>Норматив</p>
+        </dt>
+        <dd class = "col-sm-10">
+            <a asp-controller="Normatives" asp-action="Details" asp-route-id="@Model.Normative.Id">@Model.Normative.Designation</a>
+
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Изменить</a> |
+    <a asp-action="Index">К списку деталей</a>
+</div>
